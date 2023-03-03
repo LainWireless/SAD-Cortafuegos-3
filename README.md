@@ -56,7 +56,7 @@ Sobre el escenario creado en el módulo de servicios con las máquinas Alfa (Rou
 
 ### **Persistencia**
 
-Para hacer que las reglas que hagamos sean permanentes, es decir, que se vuelvan a crear automáticamente después de un reinicio. Para ello, guardaremos todas las reglas en un script, y dicho script será ejecutado en cada reinicio gracias a una unidad systemd que crearemos. Así pues, la unidad systemd es la siguiente:
+Para hacer que las reglas que hagamos sean permanentes, guardaremos todas las reglas en un script, y dicho script será ejecutado en cada reinicio por una unidad systemd. Así pues, la unidad systemd es la siguiente:
 ```bash
 nano /etc/systemd/system/iptables.service
 
@@ -77,7 +77,7 @@ Tras crear esta unidad, la habilitamos:
 systemctl enable iptables.service
 ```
 
-En dicha unidad, aparece referenciado el siguiente fichero, el cual contendrá todas las reglas. Además de dicho fichero, en esta práctica, crearé un apartado para cada bloque de reglas y demostrar su funcionamiento. Así pues, el fichero final sería el siguiente:
+El contenido del script, sería el siguiente (contiene todas las reglas):
 
 ```bash
 nano /usr/local/bin/iptables.sh
